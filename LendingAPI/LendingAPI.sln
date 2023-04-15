@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LendingAPI", "LendingAPI.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LendingAPI.Repository", "..\LendingAPI.Repository\LendingAPI.Repository.csproj", "{E138E7B9-198A-443A-9969-1A08BB283D26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingAPI.Business", "..\LendingAPI.Business\LendingAPI.Business.csproj", "{38EAA017-3482-47E1-A550-EE0FB94A652F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LendingAPI.Business", "..\LendingAPI.Business\LendingAPI.Business.csproj", "{38EAA017-3482-47E1-A550-EE0FB94A652F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingAPI.Repository.Tests", "..\LendingAPI.Repository.Tests\LendingAPI.Repository.Tests.csproj", "{7AC2AA2B-01B0-46FB-AA3E-65D2EC4CA03A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingAPI.Business.Tests", "..\LendingAPI.Business.Tests\LendingAPI.Business.Tests.csproj", "{937E03D5-D1A9-44F9-93AD-20B31D56A3F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingAPI.Tests", "..\LendingAPI.Tests\LendingAPI.Tests.csproj", "{74363B11-497C-49C8-9F35-FE81AA4B0DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{38EAA017-3482-47E1-A550-EE0FB94A652F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38EAA017-3482-47E1-A550-EE0FB94A652F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38EAA017-3482-47E1-A550-EE0FB94A652F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AC2AA2B-01B0-46FB-AA3E-65D2EC4CA03A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC2AA2B-01B0-46FB-AA3E-65D2EC4CA03A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC2AA2B-01B0-46FB-AA3E-65D2EC4CA03A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC2AA2B-01B0-46FB-AA3E-65D2EC4CA03A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937E03D5-D1A9-44F9-93AD-20B31D56A3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937E03D5-D1A9-44F9-93AD-20B31D56A3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937E03D5-D1A9-44F9-93AD-20B31D56A3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{937E03D5-D1A9-44F9-93AD-20B31D56A3F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74363B11-497C-49C8-9F35-FE81AA4B0DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74363B11-497C-49C8-9F35-FE81AA4B0DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74363B11-497C-49C8-9F35-FE81AA4B0DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74363B11-497C-49C8-9F35-FE81AA4B0DD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

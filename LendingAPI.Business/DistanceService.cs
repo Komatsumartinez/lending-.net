@@ -28,13 +28,11 @@ namespace LendingAPI.Business
         /// </summary>
         /// <param name="distance">The distance model <see cref="DistancesCollection"/>.</param>
         /// <returns>The <see cref="DistancesCollection"/> calcuLATed.</returns>
-        public async Task<CalcuLATedDistance> CalculateDistance(CalcuLATedDistance distance)
+        public async Task<CalculatedDistance> CalculateDistance(CalculatedDistance distance)
         {
             var fromInfo = await GetDistanceByZipAsync(distance.FromZip);
             var toInfo = await GetDistanceByZipAsync(distance.ToZip);
             distance.DistanceInMiles = DistanceInMiles(fromInfo, toInfo);
-
-
             return distance;
         }
 

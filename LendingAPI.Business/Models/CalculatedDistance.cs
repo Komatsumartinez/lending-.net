@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LendingAPI.Business.Models
 {
-    public class CalcuLATedDistance
+    public class CalculatedDistance
     {
         public string FromZip { get; set; }
         public string ToZip { get; set; }

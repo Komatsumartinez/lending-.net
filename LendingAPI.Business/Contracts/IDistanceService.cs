@@ -9,7 +9,7 @@ namespace LendingAPI.Business.Contracts
 {
     public interface IDistanceService
     {
-        Task<CalcuLATedDistance> CalculateDistance(CalcuLATedDistance distance);
+        Task<CalculatedDistance> CalculateDistance(CalculatedDistance distance);
         Task<DistanceDto> GetDistanceByZipAsync(string zip);
         Task<List<DistanceDto>> GetAllZipsInfoAsync();
     }

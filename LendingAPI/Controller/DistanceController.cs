@@ -34,7 +34,7 @@ namespace LendingAPI.Controller
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [HttpPost]
-        public ActionResult CalculateDistance(CalcuLATedDistance distance)
+        public ActionResult CalculateDistance(CalculatedDistance distance)
         {
             if (distance.FromZip == "" || distance.ToZip == "")
             {

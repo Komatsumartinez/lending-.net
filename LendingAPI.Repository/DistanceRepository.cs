@@ -20,14 +20,12 @@ namespace LendingAPI.Business
         }
         public async Task<DistancesCollection> GetDistanceByZips(string zipCode)
         {
-            var hola = await Collection.FindAsync(new BsonDocument { { "ZIP", zipCode } }).Result.FirstAsync();
-            return hola;
+            return await Collection.FindAsync(new BsonDocument { { "ZIP", zipCode } }).Result.FirstAsync(); ;
         }
 
         public async Task<List<DistancesCollection>> GetAllZips()
-        {
-            var hola = await Collection.FindAsync(new BsonDocument { }).Result.ToListAsync();
-            return hola;
+        {            
+            return await Collection.FindAsync(new BsonDocument { }).Result.ToListAsync(); ;
         }
     }
 }
