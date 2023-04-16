@@ -59,20 +59,19 @@ namespace LendingAPI.Business
         #region Helper Methods
         private double DistanceInMiles(DistanceDto distanceFrom, DistanceDto distanceTo)
         {
-            distanceFrom.LNG = toRadians(distanceFrom.LNG);
-            distanceTo.LNG = toRadians(distanceTo.LNG);
-            distanceFrom.LAT = toRadians(distanceFrom.LAT);
-            distanceTo.LAT = toRadians(distanceTo.LAT);
+            const double r = 3958.8; 
 
-            double dlon = distanceTo.LNG - distanceFrom.LNG;
-            double dLAT = distanceTo.LAT - distanceFrom.LAT;
-            double a = Math.Pow(Math.Sin(dLAT / 2), 2) +
-                       Math.Cos(distanceFrom.LAT) * Math.Cos(distanceTo.LAT) *
-                       Math.Pow(Math.Sin(dlon / 2), 2);
+            var dLat = toRadians(distanceTo.LAT - distanceFrom.LAT);
+            var dLon = toRadians(distanceTo.LNG - distanceFrom.LNG);
 
-            double c = 2 * Math.Asin(Math.Sqrt(a));
-            double r = 6371;
-            return (c * r);
+            var a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                    Math.Cos(toRadians(distanceFrom.LAT)) * Math.Cos(toRadians(distanceTo.LAT)) *
+                    Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+            var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            var distance = r * c;
+
+            return distance;
+
         }
 
         private double toRadians(

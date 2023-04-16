@@ -17,7 +17,7 @@ namespace LendingAPI.Repository.Tests.DistanceRepositorys.GetDistanceByZips
         {
             #region Variables
             var expectedData = new DistancesCollection
-            { City = "Anaheim", Id = new ObjectId("643ac1892fd11d97d4829d19"), LAT = 33.844983, LNG = -117.952151, ZIP = "92801" };
+            { City = "Anaheim", Id = new ObjectId("643ac1892fd11d97d4829d19"), LAT = 33.84765, LNG = -117.9526, ZIP = "92801" };
             #endregion
 
             #region Setup            

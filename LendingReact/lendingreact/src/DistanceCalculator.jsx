@@ -1,24 +1,31 @@
-import axios from "axios";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-const API_URL = 'https://localhost:44336/api/Distance';
+const API_URL = 'http://localhost:8080/api/Distance';
 
 const DistanceCalculator = () => {
     const [fromZip, setFromZip] = useState("");
     const [toZip, setToZip] = useState("");
     const [distance, setDistance] = useState(null);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         var body = {
-            FromZip: fromZip,
-            ToZip: toZip,
+            fromZip: fromZip,
+            toZip: toZip,
+            distanceInMiles: 0
         }
-        console.log(body);
         try {
-            const response = await axios.post(API_URL, { body });
-            setDistance(response.data.distance);
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            };
+
+            fetch(API_URL, requestOptions)
+                .then(response => response.json())
+                .then(data => setDistance(data.distanceInMiles))
+                .catch(error => console.error(error));
         } catch (error) {
             console.error(error);
         }

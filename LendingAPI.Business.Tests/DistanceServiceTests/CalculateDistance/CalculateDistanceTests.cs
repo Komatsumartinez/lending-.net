@@ -42,7 +42,7 @@ namespace LendingAPI.Business.Tests.DistanceServiceTests.CalculateDistance
 
             #region Assert
             Assert.IsType<CalculatedDistance>(results);
-            Assert.Equal(779.4885499806808, results.DistanceInMiles);
+            Assert.Equal(484.3571294402008, results.DistanceInMiles);
             #endregion
         }
     }

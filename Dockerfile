@@ -6,18 +6,21 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["LendingAPI.csproj", "."]
-RUN dotnet restore "./LendingAPI.csproj"
+COPY ["LendingAPI/LendingAPI.csproj", "LendingAPI/"]
+COPY ["LendingAPI.Business/LendingAPI.Business.csproj", "LendingAPI.Business/"]
+COPY ["LendingAPI.Repository/LendingAPI.Repository.csproj", "LendingAPI.Repository/"]
+RUN dotnet restore "LendingAPI/LendingAPI.csproj"
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "LendingAPI.csproj" -c Release -o /app/build
+WORKDIR "/src/LendingAPI"
+RUN dotnet build "LendingAPI.csproj" -c Debug -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "LendingAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
+ARG MONGO_CONNECTION_STRING
+ENV MongoDBConnection=$MONGO_CONNECTION_STRING
+RUN dotnet publish "LendingAPI.csproj" -c Debug -o /app/publish
 
 FROM base AS final
 WORKDIR /app
