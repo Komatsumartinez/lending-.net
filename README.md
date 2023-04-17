@@ -1,6 +1,6 @@
 # Description
 
-This API calculates the distance between two zip codes using a layered architecture and TDD methodology. It is backed by a MongoDB database and is dockerized. The frontend is built using React.
+This API calculates the distance between two zip codes using a layered architecture and TDD methodology. It is backed by a MongoDB database in MongoAtlas and is dockerized. The frontend is built using React.
 
 # Endpoints
 
@@ -56,7 +56,7 @@ This API calculates the distance between two zip codes using a layered architect
  # How to Use
  
   * Clone the repository.
-  * Run docker-compose up to start the MongoDB and API containers.
+  * Run docker-compose up to start API container.
   * Navigate to the frontend folder and run npm install to install dependencies.
   * Run npm start to start the frontend.
   * Use the API endpoints to calculate distance and retrieve zip code information.
