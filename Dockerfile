@@ -10,17 +10,16 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["LendingAPI/LendingAPI.csproj", "LendingAPI/"]
-COPY ["LendingAPI.Business/LendingAPI.Business.csproj", "LendingAPI.Business/"]
 COPY ["LendingAPI.Repository/LendingAPI.Repository.csproj", "LendingAPI.Repository/"]
+COPY ["LendingAPI.Business/LendingAPI.Business.csproj", "LendingAPI.Business/"]
 RUN dotnet restore "LendingAPI/LendingAPI.csproj"
 COPY . .
+COPY ["LendingAPI/appsettings.json", "LendingAPI/"]
 WORKDIR "/src/LendingAPI"
-RUN dotnet build "LendingAPI.csproj" -c Debug -o /app/build
+RUN dotnet build "LendingAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
-ARG MONGO_CONNECTION_STRING
-ENV MongoDBConnection=$MONGO_CONNECTION_STRING
-RUN dotnet publish "LendingAPI.csproj" -c Debug -o /app/publish
+RUN dotnet publish "LendingAPI.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

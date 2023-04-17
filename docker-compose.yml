@@ -1,13 +1,5 @@
 version: '3.9'
 services:
-  mongodb:
-    container_name: lendingdb
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    networks:
-      - myapp_network
-
   myapp:
     container_name: lendingapi
     build:
@@ -15,15 +7,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:80"
-    depends_on:
-      - mongodb
-    environment:
-      - MONGO_CONNECTION_STRING=mongodb://mongodb:27017/lendingdb?directConnection=true
-    networks:
-      - myapp_network
-
-networks:
-  myapp_network:
-
-volumes:
-  mongodb_data:
